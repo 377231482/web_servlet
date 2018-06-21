@@ -8,9 +8,9 @@
 </head>
 <body>
 <form action="Login"   method="post">
-       用户:<input   type ="text"  name ="name"><br>
-       密码:<input   type = "password"   name ="pwd"><br>
-       <button   type = "submit">提交</button>
+       用户名:<input   type ="text"  name ="username"><br>
+       密 &nbsp&nbsp&nbsp 码:<input   type = "password"   name ="pwd"><br>
+       <button   type = "submit">登录</button>
        </form>
 </body>
 </html>

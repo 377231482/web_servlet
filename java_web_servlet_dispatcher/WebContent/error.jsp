@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>跳转页面</title>
+<title>跳转失败</title>
 </head>
 <body>
-<h2>恭喜你 登陆成功</h2>
+           <h2>登录  失败</h2>
 </body>
 </html>

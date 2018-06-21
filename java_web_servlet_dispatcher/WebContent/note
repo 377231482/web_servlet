@@ -1,0 +1,24 @@
+1,web项目在tomcat容器中运行，所以整个web项目的目录结构tomcat都是知道的。也就是说tomcat容器可以根据特定的目录结构来获取有用的信息。
+	======特定的目录结构
+		WebContent
+		    ---WEB-INF 该文件夹下存放的是和web有关的信息，比如说jar包或web.xml配置文件
+		    	---lib 该文件夹用于存放该web项目所用到的jar包
+		    	---web.xml 该文件用于描述整个项目的所有请求信息以及对应的处理类
+	=======有用的信息
+		tomcat会根据web.xml 来知道tomcat会处理什么请求,以及默认显示的页面（index.html index.htm index.jsp 
+		具体能默认显示的页面查看web.xml中的<welcome-file-list>配置.....
+
+		
+2,如果项目中有web.xml中<welcome-file-list>配置的页面的话，直接显示该页面 。
+	 =======直接显示index.jsp页面
+	 	页面中根据form表单的action属性 来提交请求，提交请求包含了两种方式（GET/POST),默认为GET方式。请求中包含了输入框中用户输入的信息。
+	 	如果web.xml中配置有对应的action处理类的话，直接到该处理类，由该处理类的doGet或doPost行为来处理对于的请求方式
+	 		在action处理类（即servlet处理类）中通过HttpServletRequest来获取用户输入的请求信息 :request.getParameter("输入框的name属性对于的值");
+	 		
+	 		~根据请求的信息，来查询对应的数据库记录(连接数据库获取记录的五个步骤)
+	 		
+	 		请求如果处理完成的话，需要通过HttpServletResponse来给浏览器以响应
+	 			如果直接要给浏览器展示信息的话，方式为：response.getWrite()来获取输出流。通过输出流来给浏览器响应信息
+	 				输出流是站在servlet的角度来看待的，展示给浏览器的话，是从servlet中出去的
+	 		
+	 	如果web.xml中没有配置对应的action处理类的话，直接报错误
