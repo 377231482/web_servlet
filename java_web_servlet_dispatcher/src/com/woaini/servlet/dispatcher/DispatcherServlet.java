@@ -21,7 +21,7 @@ public class DispatcherServlet  extends  HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//获取参数
+	 //获取参数
         String  name    =   req.getParameter("username");
         String  pwd     =   req.getParameter("pwd");
         //System.out.println("账号:"+name+ ";密码:"+ pwd);
