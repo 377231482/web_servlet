@@ -27,7 +27,8 @@ public class DispatcherServlet  extends  HttpServlet {
         //System.out.println("账号:"+name+ ";密码:"+ pwd);
 
  try {
-	     //注册驱动
+	      
+	 //注册驱动
         DriverManager.registerDriver(new Driver());
         //获取数据库接口连接
         Connection  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javacc", "root", "666666");
@@ -35,31 +36,33 @@ public class DispatcherServlet  extends  HttpServlet {
         Statement  statement = conn.createStatement();
         ResultSet   resultSet= statement.executeQuery("select * from  user  where name ='"+name+"'" );
         //处理结果集
-         while (resultSet.next()) {
-	 	       String  names = resultSet.getString("name"); 
+          while (resultSet.next()) {
+		 
+	 	   String  names = resultSet.getString("name"); 
   	           int  height = resultSet.getInt("height");
   	           String  sex = resultSet.getString("sex");
   	           int weight = resultSet.getInt("weight");
   	           
+		 
+		   //登录判断
   	           if (name.equals(names) && pwd.equals(sex)) {
   	           resp.sendRedirect("success.jsp");
-  	         System.out.println("年龄:"+names+"身高:"+height+"性别:"+sex+"体重:"+weight);
+  	           System.out.println("年龄:"+names+"身高:"+height+"性别:"+sex+"体重:"+weight);
   		       }else {
   			   resp.sendRedirect("error.jsp");
   		       }
   	           
-	           
-  	      //判断连接数据   
+	          
   	 
 	       }
          //关闭资源链接
               statement.close();
               resultSet.close();
               conn.close();
-          }
-  catch (Exception e) {
+               }
+   catch (Exception e) {
  
-           }
+               }
 	       }
 	      @Override
 	       protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
